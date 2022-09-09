@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "pinia": "^2.0.17",
+    "pinyin": "^3.0.0-alpha.4",
     "sass-loader": "^13.0.2",
     "vant": "^3.6.1",
     "vue": "^3.2.37",

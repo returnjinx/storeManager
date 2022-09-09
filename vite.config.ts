@@ -24,8 +24,11 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@import "@/assets/scss/main.scss";',
+        // additionalData: '@import "@/assets/scss/main.scss";',
       },
     },
+  },
+  server: {
+    host: '0.0.0.0',
   },
 });

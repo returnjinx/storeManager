@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router';
-// import HomeView from '../views/home/index.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,33 +7,50 @@ const router = createRouter({
       path: '/',
       name: 'main',
       component: () => import('../views/main/index.vue'),
+      redirect: '/main/home',
       children: [
         {
-          path: 'home',
+          path: '/main/home',
           name: 'home',
           component: () => import('../views/home/index.vue'),
         },
         {
-          path: 'my',
+          path: '/main/my',
           name: 'my',
           component: () => import('../views/my/index.vue'),
         },
         {
-          path: 'sort',
+          path: '/main/sort',
           name: 'sort',
           component: () => import('../views/sort/index.vue'),
         },
       ],
     },
-
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (About.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import('../views/AboutView.vue')
-    // }
+    {
+      path: '/staple',
+      name: 'staple',
+      component: () => import('../views/staple/index.vue'),
+    },
+    {
+      path: '/staple/info',
+      name: 'stapleInfo',
+      component: () => import('../views/staple/info.vue'),
+    },
+    {
+      path: '/productIn',
+      name: 'productIn',
+      component: () => import('../views/productIn/index.vue'),
+    },
+    {
+      path: '/member',
+      name: 'member',
+      component: () => import('../views/member/index.vue'),
+    },
+    {
+      path: '/member/info',
+      name: 'memberInfo',
+      component: () => import('../views/member/info.vue'),
+    },
   ],
 });
 
