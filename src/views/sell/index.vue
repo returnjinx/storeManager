@@ -1,8 +1,10 @@
 <!--  -->
 <template>
   <div>
-    <navHeader title="原料列表" @onClickRight="onClickRight" v-bind="headerOptions" />
+    <navHeader title="出库列表" @onClickRight="onClickRight" v-bind="headerOptions" />
     <van-list v-model:loading="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
+      <!-- <van-cell v-for="item in list" :key="item" :title="item" /> -->
+      <!-- <van-cell value="内容" is-link> -->
       <van-cell v-for="item in list" :key="item">
         <template #title>
           <div class="list-box">
@@ -32,6 +34,7 @@ const onClickRight = () => {
 };
 const headerOptions = ref({
   showRight: true,
+  rightIcon: 'user-o',
 });
 const onLoad = () => {
   // 异步更新数据

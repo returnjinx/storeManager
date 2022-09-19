@@ -1,8 +1,10 @@
 <!--  -->
 <template>
-  <van-grid :column-num="3" :clickable="true">
-    <van-grid-item :icon="i.icon" :text="i.text" :to="i.path" v-for="(i, index) in list" />
-  </van-grid>
+  <div class="sort-box">
+    <van-grid :column-num="3" :clickable="true">
+      <van-grid-item :icon="i.icon" :text="i.text" :to="i.path" v-for="(i, index) in list" />
+    </van-grid>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -13,10 +15,6 @@ const list = ref([
     text: '原料',
     path: '/staple',
   },
-  // {
-  //   icon: 'after-sale',
-  //   text: '流水',
-  // },
   {
     icon: 'records',
     text: '入库',
@@ -25,7 +23,23 @@ const list = ref([
   {
     icon: 'logistics',
     text: '出库',
-    path: '/staple',
+    path: '/sell',
+  },
+  // {
+  //   icon: 'after-sale',
+  //   text: '流水',
+  // },
+
+  {
+    icon: 'shop-o',
+    text: '库存',
+    path: '/stock',
+  },
+
+  {
+    icon: 'vip-card-o',
+    text: '客户',
+    path: '/client',
   },
   {
     icon: 'friends-o',
@@ -35,6 +49,10 @@ const list = ref([
 ]);
 </script>
 <style lang="scss" scoped>
+// .sort-box {
+//   width: 100vw;
+//   // height: 100%;
+// }
 .sort-item {
   width: 100%;
   height: 1.3333rem;

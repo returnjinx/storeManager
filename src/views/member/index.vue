@@ -1,11 +1,7 @@
 <!--  -->
 <template>
   <div>
-    <van-nav-bar title="人员" left-text="返回" left-arrow @click-left="onClickLeft" @click-right="onClickRight">
-      <template #right>
-        <van-icon name="plus" size="18" />
-      </template>
-    </van-nav-bar>
+    <navHeader title="人员列表" @onClickRight="onClickRight" v-bind="headerOptions" />
     <van-index-bar>
       <template v-for="(i, key, index) in list">
         <van-index-anchor :index="key" />
@@ -18,10 +14,13 @@
 <script setup>
 import Pinyin from 'pinyin';
 import { reactive, toRefs, onBeforeMount, onMounted, ref } from 'vue';
+import navHeader from '@/components/Header/index.vue';
 import router from '@/router';
 const data = reactive(['安安', '啥见客户', '接口', '就几家', '其味无穷', '幸锦星', '钟源数据库']);
 const list = reactive({});
-
+const headerOptions = ref({
+  showRight: true,
+});
 const wordSort = (arr) => {
   return arr.sort(function (s1, s2) {
     let x1 = s1.toUpperCase();
