@@ -24,8 +24,8 @@ const onSubmit = (values) => {
 </script>
 <style lang="scss" scoped>
 .register-box {
-  height: 100vh;
-  width: 100vw;
+  // height: 100vh;
+  // width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;

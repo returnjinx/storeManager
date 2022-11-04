@@ -4,8 +4,11 @@
 <script setup lang="ts">
 // import Home from '@/views/home/index.vue';
 </script>
-<style scoped>
-
+<style>
+.app_view {
+  width: 100%;
+  height: 100%;
+}
 /* header {
   line-height: 1.5;
   max-height: 100vh;

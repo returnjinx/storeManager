@@ -22,7 +22,7 @@ const list = ref([
   },
   {
     icon: 'points',
-    text: '分类',
+    text: '工作台',
     name: 'sort',
     path: '/main/sort',
   },

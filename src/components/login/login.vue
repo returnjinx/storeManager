@@ -6,7 +6,7 @@
         <van-field v-model="username" name="用户名" label="用户名" placeholder="用户名" :rules="[{ required: true, message: '请填写用户名' }]" />
         <van-field v-model="password" type="password" name="密码" label="密码" placeholder="密码" :rules="[{ required: true, message: '请填写密码' }]" />
       </van-cell-group>
-      <div style="margin: 16px">
+      <div style="margin: 16px 0 0 0;">
         <van-button round block type="primary" native-type="submit"> 登录 </van-button>
       </div>
     </van-form>
@@ -24,8 +24,8 @@ const onSubmit = (values) => {
 </script>
 <style lang="scss" scoped>
 .login-box {
-  height: 100vh;
-  width: 100vw;
+  // height: 100vh;
+  // width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;

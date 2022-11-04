@@ -2,7 +2,7 @@ let canvas, ctx;
 let points = [];
 let fov = 100;
 let dist = 100;
-let opacity = 0.5;
+let opacity = 0.2;
 let particleSize = 2;
 let maxAmplitude = 1500; // Best results with values > 500
 let sideLength = 50; // How many particles per side
