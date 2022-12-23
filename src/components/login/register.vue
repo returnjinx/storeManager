@@ -3,8 +3,9 @@
   <div class="register-box">
     <van-form @submit="onSubmit">
       <van-cell-group inset>
-        <van-field v-model="username" name="用户名" label="用户名" placeholder="用户名" :rules="[{ required: true, message: '请填写用户名' }]" />
-        <van-field v-model="password" type="password" name="密码" label="密码" placeholder="密码" :rules="[{ required: true, message: '请填写密码' }]" />
+        <van-field v-model="phoneNum" name="phonenum" label="账号" placeholder="账号" :rules="[{ required: true, message: '请填写账号' }]" />
+        <van-field v-model="nickname" name="nickname" label="密码" placeholder="密码" :rules="[{ required: true, message: '请填写密码' }]" />
+        <van-field v-model="password" type="password" name="password" label="密码" placeholder="密码" :rules="[{ required: true, message: '请填写密码' }]" />
       </van-cell-group>
       <div style="margin: 16px">
         <van-button round block type="primary" native-type="submit"> 注册 </van-button>
@@ -15,11 +16,13 @@
 
 <script setup>
 import { reactive, ref, toRefs, onBeforeMount, onMounted } from 'vue';
-
-const username = ref('');
+import { http } from '@/utils/request';
+const phonenum = ref('');
 const password = ref('');
-const onSubmit = (values) => {
-  console.log('submit', values);
+const nickname = ref('');
+const onSubmit = (data) => {
+  console.log('submit', data);
+  http.post('/api/register', data);
 };
 </script>
 <style lang="scss" scoped>

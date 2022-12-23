@@ -6,10 +6,10 @@
       <van-cell v-for="item in list" :key="item">
         <template #title>
           <div class="list-box">
-            <p class="content">dosomething</p>
+            <p class="content">{{item.material}}</p>
             <div class="details">
-              <p class="time">2022-09-09</p>
-              <p class="price">total</p>
+              <p class="time">{{item.date}}</p>
+              <p class="price">{{item.total}}</p>
             </div>
 
             <div class="image-box"></div>
@@ -24,6 +24,7 @@
 import { reactive, ref, toRefs, onBeforeMount, onMounted } from 'vue';
 import navHeader from '@/components/Header/index.vue';
 import router from '@/router';
+import { http } from '@/utils/request';
 const list = ref([]);
 const loading = ref(false);
 const finished = ref(false);
@@ -33,22 +34,37 @@ const onClickRight = () => {
 const headerOptions = ref({
   showRight: true,
 });
+let page = 1;
+let pagesize = 20;
 const onLoad = () => {
   // 异步更新数据
   // setTimeout 仅做示例，真实场景中一般为 ajax 请求
-  setTimeout(() => {
-    for (let i = 0; i < 10; i++) {
-      list.value.push(list.value.length + 1);
-    }
+  http
+    .get(`/api/getStapleList?page=${page}&pagesize=${pagesize}`)
+    .then((res) => {
+      page++;
+      console.log(res);
+      if (res.data.length) {
+        list.value = list.value.concat(res.data);
+      } else {
+        finished.value = true;
+      }
+      loading.value = false;
+    })
+    .catch((error) => {});
+  // setTimeout(() => {
+  //   for (let i = 0; i < 10; i++) {
+  //     list.value.push(list.value.length + 1);
+  //   }
 
-    // 加载状态结束
-    loading.value = false;
+  //   // 加载状态结束
+  //   loading.value = false;
 
-    // 数据全部加载完成
-    if (list.value.length >= 40) {
-      finished.value = true;
-    }
-  }, 1000);
+  //   // 数据全部加载完成
+  //   if (list.value.length >= 40) {
+  //     finished.value = true;
+  //   }
+  // }, 1000);
 };
 const onClickLeft = () => {
   history.back();

@@ -16,6 +16,18 @@ import { Tabbar, TabbarItem } from 'vant';
 import { reactive, toRefs, ref, onBeforeMount, onMounted } from 'vue';
 import trendList from './trends/list.vue';
 import banner from './trends/banner.vue';
+
+import { http } from '@/utils/request';
+
+const check = () => {
+  http.get('/api/checkLogin').then((res) => {
+    // if (res.status == 1) {
+    // }
+  });
+};
+onMounted(() => {
+  check();
+});
 </script>
 <style lang="scss" scoped>
 .trends-box {

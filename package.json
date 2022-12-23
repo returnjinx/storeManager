@@ -9,6 +9,7 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "axios": "^1.2.1",
     "pinia": "^2.0.17",
     "pinyin": "^3.0.0-alpha.4",
     "sass-loader": "^13.0.2",

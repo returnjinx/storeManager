@@ -5,7 +5,7 @@
     <van-form @submit="onSubmit">
       <van-cell-group inset>
         <van-field v-model="info.name" name="name" label="名称" placeholder="请输入名称" />
-        <van-field v-model="info.phoneNum" name="phoneNum" label="手机号码" placeholder="请输入手机号码" />
+        <van-field v-model="info.phonenum" name="phonenum" label="手机号码" placeholder="请输入手机号码" />
         <van-field v-model="info.date" is-link readonly name="date" label="日历" placeholder="点击选择日期" @click="showCalendar = true" />
         <van-field v-model="info.address" name="address" label="联系地址" placeholder="请输入联系地址" />
       </van-cell-group>
@@ -20,10 +20,22 @@
 
 <script setup>
 import { reactive, toRefs, onBeforeMount, onMounted, ref } from 'vue';
-
-const onSubmit = (values) => {
-  console.log('submit', values);
-  onClickLeft();
+import { http } from '@/utils/request';
+import { Toast } from 'vant';
+const onSubmit = (data) => {
+  console.log('submit', data);
+  http
+    .post('/api/saveMember', data)
+    .then((res) => {
+      console.log(res);
+      if (res.status == 1) {
+        onClickLeft();
+        Toast(res.message);
+      } else {
+        Toast(res.message);
+      }
+    })
+    .catch((error) => {});
 };
 const onClickLeft = () => {
   history.back();
@@ -36,7 +48,7 @@ const onConfirm = (date) => {
 
 const info = reactive({
   name: '',
-  phoneNum: '',
+  phonenum: '',
   address: '',
   date: '',
 });
