@@ -66,6 +66,16 @@ const router = createRouter({
       name: 'sellInfo',
       component: () => import('@/views/sell/info.vue'),
     },
+    {
+      path: '/treat',
+      name: 'treat',
+      component: () => import('@/views/treat/index.vue'),
+    },
+    {
+      path: '/treat/info',
+      name: 'treatInfo',
+      component: () => import('@/views/treat/info.vue'),
+    },
 
     {
       path: '/login',

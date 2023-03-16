@@ -15,10 +15,16 @@ const list = ref([
     text: '原料',
     path: '/staple',
   },
+
   {
     icon: 'records',
     text: '入库',
     path: '/productIn',
+  },
+  {
+    icon: 'records',
+    text: '代工',
+    path: '/treat',
   },
   {
     icon: 'logistics',
