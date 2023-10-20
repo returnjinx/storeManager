@@ -11,8 +11,10 @@
 
 <script setup lang="ts">
 import { reactive, toRefs, ref, onBeforeMount, onMounted } from 'vue';
+
+import type { RouteRecordName } from 'vue-router';
 import router from '@/router';
-const active = router.currentRoute.value.name;
+const active = router.currentRoute.value.name as string;
 const list = ref([
   {
     icon: 'home-o',
